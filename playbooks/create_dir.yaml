@@ -1,0 +1,15 @@
+---
+- name: Tasks for Windows Server
+  hosts: windows_server
+  gather_facts: false
+
+  tasks:
+    - name: Create directory
+      ansible.windows.win_file:
+        path: C:/Tools
+        state: directory
+
+    - name: Copy example.txt to directory
+      ansible.windows.win_copy:
+        src: files/example.txt
+        dest: C:/Tools/
