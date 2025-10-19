@@ -1,0 +1,22 @@
+---
+- name: Install EXE files from a directory
+  hosts: windows_server
+  gather_facts: false
+  vars:
+    install_dir: "\\\\W-SERVER\\Users\\Administrator\\EXE_Folder"
+  tasks:
+
+    - name: Get list of EXE files
+      ansible.windows.win_find:
+        paths: "{{ install_dir }}"
+        patterns: "*.exe"
+      register: exe_files
+
+    - name: Install EXE files
+      ansible.windows.win_package:
+        path: "{{ item.path }}"
+        state: present
+        arguments: /quiet
+      loop: "{{ exe_files.files }}"
+      loop_control:
+        label: "{{ item.path }}"

@@ -1,0 +1,14 @@
+---
+- name: Install common packages
+  hosts: windows
+  become: false
+  gather_facts: false
+  vars:
+    packages:
+      - git
+      - notepadplusplus
+  tasks:
+    - name: Install packages via Chocolatey
+      chocolatey.chocolatey.win_chocolatey:
+        name: "{{ packages }}"
+        state: present
