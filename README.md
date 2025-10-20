@@ -15,3 +15,13 @@ Made some changes in files:
   - Added GPO for the PCs for "credssp" to work.
   - Sending ping getting a Pong.
 3. Made a Shared folder for testing the non-local exe files. 
+
+
+**20/19/25 Update**
+I modifyed the exe.yaml file trying to make it work.
+- first got an error on ``` Windows cannot access the specified device, path, or file. You may not have the appropriate permissions to access the item.```
+- Then got errors about the path it want to be insalled ```C://Users/Ansible/%APPDATA%/Roaming/..``` which not exit because this user never logged in this PC.
+- Used ```"/silent /dir=%USERPROFILE%\\AppData\\Roaming\\Zoom"``` but then I tried some more stuff.
+I getting no error in vervose mode ```ansible-playbook -i inventory/hosts playbooks/exe.yaml -vvv``` but I don't see the app in appwiz.cpl.
+Tried another approch with copying the exe file into a directory and install it, but it's doing everything exept installing the exe (ZoomInstaller.exe).
+I want to check with other exe files maybe it's only Zoom.

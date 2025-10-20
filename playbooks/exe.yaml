@@ -6,17 +6,39 @@
     install_dir: "\\\\W-SERVER\\Users\\Administrator\\EXE_Folder"
   tasks:
 
+    - name: Ensure C:\Temp exists
+      ansible.windows.win_file:
+        path: C:\Temp
+        state: directory
+
     - name: Get list of EXE files
       ansible.windows.win_find:
         paths: "{{ install_dir }}"
         patterns: "*.exe"
       register: exe_files
 
-    - name: Install EXE files
-      ansible.windows.win_package:
-        path: "{{ item.path }}"
-        state: present
-        arguments: /quiet
+    - name: Copy EXE to temp folder
+      ansible.windows.win_copy:
+        src: "{{ item.path }}"
+        dest: "C:\\Temp\\{{ item.filename }}"
+        remote_src: true
       loop: "{{ exe_files.files }}"
       loop_control:
         label: "{{ item.path }}"
+
+    - name: Install EXE from local folder
+      ansible.windows.win_command: "C:\\Temp\\{{ item.filename }} /silent"
+      loop: "{{ exe_files.files }}"
+      loop_control:
+        label: "{{ item.filename }}"
+
+
+    # Optional: If you ever want to use win_package instead, uncomment below:
+    # - name: Install EXE files
+    #   ansible.windows.win_package:
+    #     path: "{{ item.path }}"
+    #     state: present
+    #     arguments: "/silent"
+    #   loop: "{{ exe_files.files }}"
+    #   loop_control:
+    #     label: "{{ item.path }}"
