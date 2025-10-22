@@ -1,0 +1,28 @@
+---
+- name: Open Powershell and check Admin privileges
+  hosts: windows_server
+  gather_facts: false
+  become: true
+  become_method: ansible.builtin.runas
+  become_user: moriel\admansible
+
+  tasks:
+    - name: Check current user context in PowerShell
+      ansible.windows.win_powershell:
+        script: whoami
+      register: user_output
+
+    - name: Print PowerShell whoami output
+      ansible.builtin.debug:
+        var: user_output.output
+
+    - name: Use win_whoami module to confirm elevated privileges
+      ansible.windows.win_whoami:
+      register: whoami_info
+
+    - name: Show elevation details
+      ansible.builtin.debug:
+        msg:
+          - "User: {{ whoami_info.account.account_name }}"
+          - "Domain: {{ whoami_info.account.domain_name }}"
+          - "Elevation level: {{ whoami_info.label.account_name }}"
