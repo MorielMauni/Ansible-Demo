@@ -10,6 +10,14 @@ I use a test environment that I created to test everything:
 
 ---
 
+**26/19/25 Update**
+
+Added "adobe.yaml"
+For what I understand to install an exe file I need to have the right arguments.
+To know what arguments I need for every exe I got an option to run ``` setup.exe /?``` and to get what arguments are available.
+I tried to to it for the "Adobe Acrobat XI Standard" that we use.
+I'm getting a new error which is an exe error "1603 fatal installer error"
+
 **22/19/25 Update**
 
 Created a new test playbook named "vmtools.yaml":
