@@ -1,12 +1,12 @@
 ---
 - name: Install packages
-  hosts: windows_server
+  hosts: test_server
   become: false
   gather_facts: false
   vars:
     packages:
       - git
-      # - notepadplusplus
+      - notepadplusplus
   tasks:
     - name: Install packages via Chocolatey
       chocolatey.chocolatey.win_chocolatey:

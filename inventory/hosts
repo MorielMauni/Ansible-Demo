@@ -1,2 +1,5 @@
 [windows_server]
 L-MorielM ansible_host=192.168.232.130
+
+[test_server]
+L-DevOps ansible_host=192.168.232.132

@@ -9,6 +9,29 @@ I use a test environment that I created to test everything:
 3. Machine1: Windows 11.
 
 ---
+**27/19/25 Update**
+
+Made a new VM (L-DevOps) to showcase the workflow to others at work.
+- Added /group_vars/test_server.yaml and /host_vars/L-DevOps.yaml .
+
+I was looking more about the installation of exe files, and shaw that some arguments are mandetory.
+```
+**Support for true silent mode**: No user input is needed when started with the correct arguments (e.g., /S, /silent, /quiet).
+**Do not require GUI interactions**: No pop-ups, EULAs, or buttons to click.
+**Return standard error codes**: Installation completes and returns a clear success/failure code the module can read.
+Do not dynamically download other installers or prompt for network access.
+
+**Common EXE installer technologies that work well**:
+Inno Setup (e.g., /VERYSILENT /NORESTART)
+NSIS (Nullsoft Scriptable Install System) (e.g., /S)
+InstallShield (silent options vary, but usually /s /v"/qn")
+WiX Burn Bundles (/quiet /norestart)
+Microsoft-provided redistributables (e.g., Visual C++ Redistributables)
+```
+
+Made "7zip.yaml" and took the installation as a link and didn't downloaded the exe
+- I need internet to remote install so I don't care if I have to "download" the exe again.
+IT WORKED! 
 
 **26/19/25 Update**
 
