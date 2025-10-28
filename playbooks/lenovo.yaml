@@ -1,0 +1,11 @@
+---
+- name: Install Lenovo System Update silently on Windows
+  hosts: windows_server
+  gather_facts: false
+
+  tasks:
+    - name: Install Lenovo System Update
+      ansible.windows.win_package:
+        path: 'https://download.lenovo.com/pccbbs/thinkvantage_en/system_update_5.08.03.59.exe'
+        arguments: '/SP- /VERYSILENT /SUPPRESSMSGBOXES /NORESTART'
+        state: present

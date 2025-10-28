@@ -1,6 +1,6 @@
 ---
 - name: Install packages
-  hosts: test_server
+  hosts: windows_server
   become: false
   gather_facts: false
   vars:
@@ -11,4 +11,4 @@
     - name: Install packages via Chocolatey
       chocolatey.chocolatey.win_chocolatey:
         name: "{{ packages }}"
-        state: present
+        state: reinstalled

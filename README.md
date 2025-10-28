@@ -9,6 +9,31 @@ I use a test environment that I created to test everything:
 3. Machine1: Windows 11.
 
 ---
+
+**28/19/25 Update**
+
+Huge update:
+I enables ICMP with a GPO and then changed the "/etc/resolv.conf" file to this:
+```
+nameserver 192.168.232.128
+search moriel.local
+```
+
+And it's worked!!
+
+Did a little demo to show my Team Leader about it and we tried to install another exe (lenovo.yaml), worked as a charm!
+- Downloaded the exe file from the website.
+- checked the arguments with "/?".
+- Re-Write the playbook.
+
+Also, we cheked a little bit about "state":
+- present
+- latest
+- absent
+- downgrade
+- reinstalled
+
+
 **27/19/25 Update**
 
 Made a new VM (L-DevOps) to showcase the workflow to others at work.
