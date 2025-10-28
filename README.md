@@ -7,9 +7,21 @@ I use a test environment that I created to test everything:
 1. DC1: Windows server 2022.
 2. DC2: Windows server 2022.
 3. Machine1: Windows 11.
+4. Machine2: Windows 11.
 
 ---
 
+### Checklist
+- [x] Building test environment
+- [x] Ansible on Windows
+- [x] Install packages
+- [x] Install exe files
+- [x] DNS resolve
+- [ ] Make better playbooks
+- [ ] Web GUI
+
+---
+### Updates
 **28/19/25 Update**
 
 Huge update:
@@ -33,6 +45,7 @@ Also, we cheked a little bit about "state":
 - downgrade
 - reinstalled
 
+I think now its the time to up the playbook game, and if needed making the infrastructure better.
 
 **27/19/25 Update**
 
