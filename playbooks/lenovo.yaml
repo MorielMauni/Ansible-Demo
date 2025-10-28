@@ -1,5 +1,5 @@
 ---
-- name: Install Lenovo System Update silently on Windows
+- name: Install Lenovo System Update
   hosts: windows_server
   gather_facts: false
 
