@@ -22,7 +22,19 @@ I use a test environment that I created to test everything:
 
 ---
 ### Updates
-**28/19/25 Update**
+
+**28/10/25 Update**
+
+Was looking arount for some best practices:
+- In /group_vars:
+    - Deleted all the spesific .yaml and created "all.yaml" for all the hosts
+    - Also, the User + Password are in "all.yaml"
+- In /host_vars:
+    - Changes the connection from "local" to "winrm"
+        - Still trying to understand what is the best for this.
+- Added some packages to /playbooks/packages.yaml
+
+**28/10/25 Update**
 
 Huge update:
 I enables ICMP with a GPO and then changed the "/etc/resolv.conf" file to this:
@@ -47,7 +59,7 @@ Also, we cheked a little bit about "state":
 
 I think now its the time to up the playbook game, and if needed making the infrastructure better.
 
-**27/19/25 Update**
+**27/10/25 Update**
 
 Made a new VM (L-DevOps) to showcase the workflow to others at work.
 - Added /group_vars/test_server.yaml and /host_vars/L-DevOps.yaml .
@@ -71,7 +83,7 @@ Made "7zip.yaml" and took the installation as a link and didn't downloaded the e
 - I need internet to remote install so I don't care if I have to "download" the exe again.
 IT WORKED! 
 
-**26/19/25 Update**
+**26/10/25 Update**
 
 Added "adobe.yaml"
 For what I understand to install an exe file I need to have the right arguments.
@@ -79,7 +91,7 @@ To know what arguments I need for every exe I got an option to run ``` setup.exe
 I tried to to it for the "Adobe Acrobat XI Standard" that we use.
 I'm getting a new error which is an exe error "1603 fatal installer error"
 
-**22/19/25 Update**
+**22/10/25 Update**
 
 Created a new test playbook named "vmtools.yaml":
 - Install VM Tools on every VM that I have for testing- More a thing for me.
@@ -106,7 +118,7 @@ ok: [L-MorielM] => {
 I had an idea that I will open the Powershell as admin and will loop all the exe files and install them silently but it's just won't work.
 
 
-**20/19/25 Update**
+**20/10/25 Update**
 I modifyed the exe.yaml file trying to make it work.
 - first got an error on ``` Windows cannot access the specified device, path, or file. You may not have the appropriate permissions to access the item.```
 - Then got errors about the path it want to be insalled ```C://Users/Ansible/%APPDATA%/Roaming/..``` which not exit because this user never logged in this PC.
