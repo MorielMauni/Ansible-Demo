@@ -30,7 +30,7 @@ Was looking arount for some best practices:
     - Deleted all the spesific .yaml and created "all.yaml" for all the hosts
     - Also, the User + Password are in "all.yaml"
 - In /host_vars:
-    - Changes the connection from "local" to "winrm"
+    - Changes the connection from "local" to "winrm"- and back to local
         - Still trying to understand what is the best for this.
 - Added some packages to /playbooks/packages.yaml
 
