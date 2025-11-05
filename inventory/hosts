@@ -1,8 +1,7 @@
-[windows_server]
+[active_host]
 L-MorielM
 
-[test_server]
+[list_host]
 L-DevOps
-
-[clean_server]
 L-EliyaM
+L-ServerOps

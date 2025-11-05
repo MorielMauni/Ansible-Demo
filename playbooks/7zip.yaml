@@ -1,6 +1,6 @@
 ---
 - name: Install 7-Zip on Windows
-  hosts: test_server
+  hosts: active_host
   gather_facts: false
 
   tasks:

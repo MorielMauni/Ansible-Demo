@@ -1,6 +1,6 @@
 ---
 - name: Install Lenovo System Update
-  hosts: test_server
+  hosts: active_host
   gather_facts: false
 
   tasks:

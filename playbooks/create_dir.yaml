@@ -1,6 +1,6 @@
 ---
 - name: Tasks for Windows Server
-  hosts: windows_server
+  hosts: active_host
   gather_facts: false
 
   tasks:

@@ -1,5 +1,5 @@
 - name: Install VMware Tools
-  hosts: test_server
+  hosts: active_host
   gather_facts: false
   tasks:
     - name: Install vmware-tools via Chocolatey

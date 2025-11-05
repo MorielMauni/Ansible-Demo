@@ -1,6 +1,6 @@
 ---
 - name: Open Powershell and check Admin privileges
-  hosts: windows_server
+  hosts: active_host
   gather_facts: false
   become: true
   become_method: ansible.builtin.runas

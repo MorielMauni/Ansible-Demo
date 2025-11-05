@@ -1,13 +1,13 @@
 ---
 - name: Install packages
-  hosts: test_server
+  hosts: active_host
   become: false
   gather_facts: false
   vars:
     packages:
-      # - git
+      - git
       - zoom
-      # - notepadplusplus
+      - notepadplusplus
       - zoom-outlook
   tasks:
     - name: Install packages via Chocolatey
