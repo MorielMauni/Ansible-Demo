@@ -1,7 +1,11 @@
 [active_host]
-L-MorielM
+L-ServerOps
 
 [list_host]
 L-DevOps
+L-MorielM
 L-EliyaM
-L-ServerOps
+W-TestOps
+
+[debian_host]
+ansible_host=192.168.232.129

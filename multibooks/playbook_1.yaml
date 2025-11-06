@@ -1,4 +1,3 @@
----
 - name: Install VMware Tools
   hosts: active_host
   gather_facts: false

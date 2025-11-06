@@ -4,10 +4,11 @@
 
 Working on a project on Ansible for Windows machines.
 I use a test environment that I created to test everything:
-1. DC1: Windows server 2022.
+1. DC1: Windows server 2022- ~~WSL Ansible node controller~~.
 2. DC2: Windows server 2022.
 3. Machine1: Windows 11.
 4. Machine2: Windows 11.
+5. Debian 13 VM: New node controller
 
 ---
 
@@ -17,13 +18,22 @@ I use a test environment that I created to test everything:
 - [x] Install packages
 - [x] Install exe files
 - [x] DNS resolve
-- [ ] Make better playbooks
+- [X] Run multiple playbooks at once
+- [ ] Make better playbooks- best practices
 - [ ] Web GUI
 
 ---
 ### Updates
 
-**28/10/25 Update**
+**6-5/11/25 Update**
+
+I was having some problem installing WSL on diffrent VMs so I took the project and moved it to a Debian 13 VM, took me around 10 minutes to see a ping with DNS resolving. That means I can recreate the environment with few minuts.
+
+Made a directory "multibooks"
+- playbook_1.yaml, playbook_2.yaml, and playbook_3.yaml: "edited" yaml file without the "---".
+- multibok.yaml: it looked weird and have an error on VS Code ("All playbooks should be named") it's a valit playbook that run everything as needed.
+
+**29/10/25 Update**
 
 Was looking arount for some best practices:
 - In /group_vars:
