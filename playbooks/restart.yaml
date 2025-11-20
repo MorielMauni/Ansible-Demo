@@ -1,0 +1,10 @@
+---
+- name: Force reboot on Windows host
+  hosts: active_host
+  gather_facts: false
+  tasks:
+    - name: Reboot host
+      ansible.windows.win_reboot:
+        msg: "Reboot, by Ansible playbook"
+        pre_reboot_delay: 5
+        post_reboot_delay: 10

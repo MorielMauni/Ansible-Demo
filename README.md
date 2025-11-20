@@ -25,6 +25,10 @@ I use a test environment that I created to test everything:
 ---
 ### Updates
 
+**20/11/25 Update**
+
+Got approve from Cyber in the compony to procees with the project on the system.
+
 **6-5/11/25 Update**
 
 I was having some problem installing WSL on diffrent VMs so I took the project and moved it to a Debian 13 VM, took me around 10 minutes to see a ping with DNS resolving. That means I can recreate the environment with few minuts.

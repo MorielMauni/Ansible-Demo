@@ -1,0 +1,49 @@
+---
+- name: Windows System Information
+  hosts: active_host
+  gather_facts: false
+  tasks:
+    - name: Test WinRM connectivity
+      ansible.windows.win_ping:
+
+    - name: Get system information
+      ansible.windows.win_command: systeminfo
+      register: system_info
+
+    - name: Display system info in readable format
+      ansible.builtin.debug:
+        msg: |
+          SYSTEM INFORMATION
+          -----------------
+          {{ system_info.stdout_lines | join('\n  ') }}
+
+    - name: Get installed programs registry keys
+      ansible.windows.win_reg_stat:
+        path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+      register: uninstall_keys
+
+    - name: Get display names for installed programs
+      ansible.windows.win_reg_stat:
+        path: "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{{ item }}"
+        name: DisplayName
+      register: program_name_results
+      loop: "{{ uninstall_keys.sub_keys }}"
+
+    - name: Filter display names
+      ansible.builtin.set_fact:
+        installed_program_names: >-
+          {{
+            program_name_results.results
+              | selectattr('properties.DisplayName', 'defined')
+              | map(attribute='properties.DisplayName')
+              | list
+          }}
+
+    - name: Show installed programs
+      ansible.builtin.debug:
+        msg: |
+          INSTALLED PROGRAMS ({{ installed_program_names | length }})
+          ------------------------
+          {% for name in installed_program_names %}
+          - {{ name }}
+          {% endfor %}
