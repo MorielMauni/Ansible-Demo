@@ -1,8 +1,9 @@
 [active_host]
-L-TestOps
+
+L-DevOps
 
 [list_host]
-L-DevOps
+L-TestOps
 L-MorielM
 L-EliyaM
 L-ServerOps

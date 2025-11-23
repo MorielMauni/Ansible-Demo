@@ -2,15 +2,17 @@
 - name: Install FTS Desk Update silently with custom arguments
   hosts: active_host
   gather_facts: false
+  become: true
+  become_method: ansible.builtin.runas
+  become_user: moriel\admansible
+  become_flags: logon_type=new_credentials logon_flags=netcredentials_only
+  vars:
+    ansible_become_pass: "{{ ansible_password }}"
   tasks:
     - name: Install FTS Desk Update EXE
       ansible.windows.win_command: >
         "\\W-Server\Users\Administrator\EXE_Folder\FTS_DeskUpdateSetup_5020075_1304142"
-        /SILENT
-        /SUPPRESSMSGBOXES
-        /LOG
-        /NORESTART
-        /NOCANCEL
+        /SILENT /SUPPRESSMSGBOXES /LOG /NORESTART /NOCANCEL
         /DIR="C:\Program Files\FTS_DeskUpdate"
       args:
         creates: 'C:\Program Files\FTS_DeskUpdate'
